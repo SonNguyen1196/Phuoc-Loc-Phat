@@ -10,3 +10,106 @@
 .property-2 .facilities-list li{
   float: none;
 }
+.banner-right-cost{
+  position: relative;
+}
+.banner-right-cost .title{
+  background: #313f7a;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  font-size: 22px;
+}
+.banner-right-cost .action-link{
+  background: #313f7a;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 22px;
+}
+.banner-right-cost .action-link a{
+  color: #fff;
+  text-decoration: none;
+}
+.banner-slider-home .banner .banner-slider-inner .big-title-slider {
+  font-size: 40px;
+  color: #fff;
+  margin: 0 0 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.banner-slider-home .banner .banner-slider-inner p {
+  font-size: 18px;
+}
+.btn-slider-honme{
+  padding: 10px 15px 10px 15px;
+}
+.banner-ads-home{
+  margin-top: 20px;
+}
+.content-post-home .property-content .title {
+  font-size: 15px;
+  line-height: 1.4
+}
+.content-post-home .property .property-content {
+  padding: 0px 10px 0px 20px !important;
+}
+.content-post-home .property{
+  max-height: 150px;
+}
+.content-post-home .property-content .facilities-list li{
+  line-height: 20px;
+  font-size: 13px;
+}
+.nopadding{
+  padding: 0 !important;
+}
+.block-left-content .title-block-product h2 {
+  font-weight: 600;
+  margin: 0;
+  line-height: 40px;
+}
+
+.block-left-content .view-all-link {
+  line-height: 40px;
+}
+
+.block-left-content .title-block-product {
+  height: 40px;
+  margin: 20px 0 0px 0;
+}
+.line-bottom {
+  width: 100%;
+  background: #ccc;
+  height: 1px;
+  margin-bottom: 20px;
+}
+.block-left-content .property-content p{
+  margin: 0;
+  line-height: 1.8;
+}
+.get-email-subcrribe{
+  margin-bottom: 0;
+}
+.get-email-subcrribe input{
+    width: 100%;
+    font-size: 12px;
+    height: 39px;
+    color: rgb(113, 113, 113);
+    padding: 11px 15px;
+    border-width: 1px;
+    border-color: rgb(232, 231, 231);
+    border-image: initial;
+    outline: none;
+    border: none;
+}
+.custom-sidebar-widget .sidebar-title{
+  font-size: 20px;
+  margin: 0;
+}
