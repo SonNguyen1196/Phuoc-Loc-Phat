@@ -37,59 +37,58 @@ function hr_cropt($media_id,$w,$h){
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page('Theme Options');
 }
-
 /** unsing str **/
 function hr_unsign($str){
-   $arrs = array(
-       'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
-       'd'=>'đ',
-       'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
-       'i'=>'í|ì|ỉ|ĩ|ị',
-       'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
-       'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
-       'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
-       'A'=>'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
-       'D'=>'Đ',
-       'E'=>'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
-       'I'=>'Í|Ì|Ỉ|Ĩ|Ị',
-       'O'=>'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
-       'U'=>'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
-       'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
-   );
-  foreach($arrs as $val=>$name){
-       $str = preg_replace("/($name)/i", $val, $str);
-  }
- return $str;
-}
-/*post content*/
-function get_post_excerpt($post_id='',$limit = 20) {
-    $limit = (is_numeric($limit) && $limit)?$limit:20;
-    $post_id = $post_id?$post_id:get_the_ID();
-    if(!get_post_field('post_content',$post_id))
-        return '';
-    $content = get_post_field('post_content',$post_id);
-    $content = trim(preg_replace('/<[^>]*>/', ' ', $content));
-    $content = explode(' ',$content);
-    if($limit > count($content)){
-        $count = count($content);
-    }
-    else {
-        $count = $limit;
-    }
-    $new_content = '';
-    for($i = 0; $i < $count; $i++) {
-        $new_content .= ' '.$content[$i];
-    }
-    if($count == $limit){
-        $new_content .= '...';
-    }
-    return trim($new_content);
-}
-
-function the_post_excerpt($post_id='',$limit = '') {
-    echo get_post_excerpt($post_id,$limit);
-}
-/*------------mes--*/
+    $arrs = array(
+        'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+        'd'=>'đ',
+        'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+        'i'=>'í|ì|ỉ|ĩ|ị',
+        'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+        'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+        'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
+        'A'=>'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
+        'D'=>'Đ',
+        'E'=>'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
+        'I'=>'Í|Ì|Ỉ|Ĩ|Ị',
+        'O'=>'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
+        'U'=>'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
+        'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+    );
+   foreach($arrs as $val=>$name){
+        $str = preg_replace("/($name)/i", $val, $str);
+   }
+  return $str;
+ }
+ /*post content*/
+ function get_post_excerpt($post_id='',$limit = 20) {
+     $limit = (is_numeric($limit) && $limit)?$limit:20;
+     $post_id = $post_id?$post_id:get_the_ID();
+     if(!get_post_field('post_content',$post_id))
+         return '';
+     $content = get_post_field('post_content',$post_id);
+     $content = trim(preg_replace('/<[^>]*>/', ' ', $content));
+     $content = explode(' ',$content);
+     if($limit > count($content)){
+         $count = count($content);
+     }
+     else {
+         $count = $limit;
+     }
+     $new_content = '';
+     for($i = 0; $i < $count; $i++) {
+         $new_content .= ' '.$content[$i];
+     }
+     if($count == $limit){
+         $new_content .= '...';
+     }
+     return trim($new_content);
+ }
+ 
+ function the_post_excerpt($post_id='',$limit = '') {
+     echo get_post_excerpt($post_id,$limit);
+ }
+ /*------------mes--*/
 function mes($text, $color){
     ob_start();
     $color=($color==1)?'green':'red';
@@ -145,17 +144,3 @@ function pp_category_text($post_id = '',$taxonomy='',$separator = '',$menu = fal
     }
     return $html;
 }
-
-function pp_posts_count($args) {
-    global $wpdb;
-    $the_query = new WP_Query( $args );
-    $sql = "SELECT count(*) as count from (".str_replace("ORDER BY","ORDER BY",str_replace("SQL_CALC_FOUND_ROWS ",'',$the_query->request)).") as sub";
-    $row = $wpdb->get_row( $sql );
-    if($row){
-        return $row->count;
-    }
-    return 0;
-}
-?>
-
-

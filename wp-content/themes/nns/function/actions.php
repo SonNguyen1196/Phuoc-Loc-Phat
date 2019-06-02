@@ -229,24 +229,44 @@ add_action('wp_enqueue_scripts', 'hr_frontend_script');
 function hr_frontend_script(){
     //wp_deregister_script('jquery');
     //wp_enqueue_script('jquery-core');
+
     wp_enqueue_script('underscore');
-    wp_enqueue_script('labory', THEME_URI.'/js/labory.js',array('jquery'),'', true);
-    wp_localize_script('labory', 'hr', array('p_url' => THEME_URI,'a_url'=>AJAX_URI));
-    wp_enqueue_script('frontend-js', THEME_URI.'/js/frontend.js',array('jquery'),'', true);
-    wp_localize_script('frontend-js', 'hr', array('p_url' => THEME_URI,'a_url'=>AJAX_URI));
-    wp_enqueue_script('notice-lib', THEME_URI.'/js/notice_lib.js',array('jquery'),'', true);
-    wp_enqueue_script('notice', THEME_URI.'/js/notice.js',array('jquery'),'', true);
-    wp_enqueue_script('bootstrap-js', THEME_URI.'/js/bootstrap.min.js',array('jquery'),'',true);
-    wp_enqueue_style('bootstrap-css', THEME_URI.'/css/bootstrap.min.css');
-    wp_enqueue_style('slick-theme', THEME_URI.'/css/slick-theme.css');
-    wp_enqueue_style('slick', THEME_URI.'/css/slick.css');
+    wp_enqueue_script('jquery-2.2.0-js', THEME_URI.'/asset/js/jquery-2.2.0.min.js',array('jquery'),'', true);
+    wp_enqueue_script('bootstrap-js', THEME_URI.'/asset/js/bootstrap.min.js',array('jquery'),'',true);
+    wp_enqueue_script('bootstrap-submenu', THEME_URI.'/asset/js/bootstrap-submenu.js',array('jquery'),'', true);
+    wp_enqueue_script('rangeslider', THEME_URI.'/asset/js/rangeslider.js',array('jquery'),'', true);
+    wp_enqueue_script('jquery-mb-YTPlayer', THEME_URI.'/asset/js/jquery.mb.YTPlayer.js',array('jquery'),'', true);
+    wp_enqueue_script('wow.min.js', THEME_URI.'/asset/js/wow.min.js',array('jquery'),'', true);
+    wp_enqueue_script('bootstrap-select', THEME_URI.'/asset/js/bootstrap-select.min.js',array('jquery'),'', true);
+    wp_enqueue_script('jquery.easing.1.3', THEME_URI.'/asset/js/jquery.easing.1.3.js',array('jquery'),'', true);
+    wp_enqueue_script('jquery.scrollUp', THEME_URI.'/asset/js/jquery.scrollUp.js',array('jquery'),'', true);
+    wp_enqueue_script('leaflet-js', THEME_URI.'/asset/js/leaflet.js',array('jquery'),'', true);
+    wp_enqueue_script('leaflet-providers', THEME_URI.'/asset/js/leaflet-providers.js',array('jquery'),'', true);
+    wp_enqueue_script('markercluster', THEME_URI.'/asset/js/leaflet.markercluster.js',array('jquery'),'', true);
+    wp_enqueue_script('dropzone', THEME_URI.'/asset/js/dropzone.js',array('jquery'),'', true);
+    wp_enqueue_script('filterizr', THEME_URI.'/asset/js/jquery.filterizr.js',array('jquery'),'', true);
+    wp_enqueue_script('magnific-popup.min.js', THEME_URI.'/asset/js/jquery.magnific-popup.min.js',array('jquery'),'', true);
+    wp_enqueue_script('bug-workaround', THEME_URI.'/asset/js/ie10-viewport-bug-workaround.js',array('jquery'),'', true);
+    wp_enqueue_script('ie-emulation-modes-warning', THEME_URI.'/asset/js/ie-emulation-modes-warning.js',array('jquery'),'', true);
+
    /* wp_enqueue_style('css-font', THEME_URI.'/css/font-awesome.min.css');*/
-    wp_enqueue_style('css-font', THEME_URI.'/css/fontawesome-all.min.css');
-    wp_enqueue_script( 'slick', THEME_URI. '/js/slick.min.js', '','' , true);
-    wp_enqueue_style('frontend-css', THEME_URI.'/css/frontend.css');
-    wp_enqueue_style('main-css', THEME_URI.'/css/main.css');
-    wp_enqueue_style('custom-css', THEME_URI.'/css/custom.css');
-    wp_enqueue_script('main-js', THEME_URI.'/js/main.js',array('jquery'),'', true);
+    wp_enqueue_style('bootstrap', THEME_URI.'/asset/css/bootstrap.min.css');
+    wp_enqueue_style('css-animate', THEME_URI.'/asset/css/animate.min.css');
+    wp_enqueue_style('css-submenu', THEME_URI.'/asset/css/bootstrap-submenu.css');
+    wp_enqueue_style('css-select', THEME_URI.'/asset/css/bootstrap-select.min.css');
+    wp_enqueue_style('css-leaflet', THEME_URI.'/asset/css/leaflet.css');
+    wp_enqueue_style('css-map', THEME_URI.'/asset/css/map.css');
+    wp_enqueue_style('css-font-awesome', THEME_URI.'/asset/fonts/font-awesome/css/font-awesome.min.css');
+    wp_enqueue_style('css-flaticon', THEME_URI.'/asset/fonts/flaticon/font/flaticon.css');
+    wp_enqueue_style('css-style', THEME_URI.'/asset/fonts/linearicons/style.css');
+    wp_enqueue_style('css-mCustomScrollbar', THEME_URI.'/asset/css/jquery.mCustomScrollbar.css');
+    wp_enqueue_style('css-dropzone', THEME_URI.'/asset/css/dropzone.css');
+    wp_enqueue_style('css-magnific', THEME_URI.'/asset/css/magnific-popup.css');
+    wp_enqueue_style('css-special-style', THEME_URI.'/asset/css/style.css');
+    wp_enqueue_style('css-overide', THEME_URI.'/asset/css/overide.css');
+    wp_enqueue_style('css-default', THEME_URI.'/asset/css/skins/default.css');
+    wp_enqueue_style('css-default', THEME_URI.'/asset/css/skins/default.css');
+    wp_enqueue_style('ie10-viewport-bug-workaround', THEME_URI.'/asset/css/ie10-viewport-bug-workaround.css');
 
 }
 /***** ADD SCRIPT BACKEND ******/
@@ -288,4 +308,74 @@ function update_count_view(){
 function acf_render($before,$after,$content=''){
     return ($content)?$before.$content.$after:'';
 }
+
+add_action( 'init', 'codex_duan_init' );
+/**
+ * Register a book post type.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_post_type
+ */
+function codex_duan_init() {
+	$labels = array(
+		'name'               => _x( 'Dự Án', 'plp-prj' ),
+		'singular_name'      => _x( 'Dự Án', 'plp-prj' ),
+		'menu_name'          => _x( 'Dự Án', 'plp-prj' ),
+		'name_admin_bar'     => _x( 'Dự Án', 'plp-prj' ),
+		'add_new'            => _x( 'Thêm Dự Án', 'plp-prj' ),
+		'add_new_item'       => __( 'Thêm Dự Án', 'plp-prj' ),
+		'new_item'           => __( 'Thêm Dự Án', 'plp-prj' ),
+		'edit_item'          => __( 'Sửa Dự Án', 'plp-prj' ),
+		'view_item'          => __( 'Xem Dự Án', 'plp-prj' ),
+		'all_items'          => __( 'Tất Cả Dự Án', 'plp-prj' ),
+		'search_items'       => __( 'Tìm Kiếm Dự Án', 'plp-prj' ),
+		'parent_item_colon'  => __( 'Dự Án', 'plp-prj' ),
+		'not_found'          => __( 'Không tìm thấy Dự Án.', 'plp-prj' ),
+		'not_found_in_trash' => __( 'Không có Dự Án trong thùng rác.', 'plp-prj' )
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'description'        => __( 'Description.', 'plp-prj' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'du-an' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+	);
+
+    register_post_type( 'du-an', $args );
+    
+    // Add new taxonomy, NOT hierarchical (like tags)
+	$labels_txn = array(
+		'name'                       => _x( 'Chuyên Mục', 'plp-prj' ),
+		'singular_name'              => _x( 'Chuyên Mục', 'plp-prj' ),
+		'search_items'               => __( 'Tìm Kiếm Chuyên Mục', 'plp-prj' ),
+		'all_items'                  => __( 'Tất Cả Chuyên Mục', 'plp-prj' ),
+		'parent_item'                => null,
+		'parent_item_colon'          => null,
+		'edit_item'                  => __( 'Sửa Chuyên Mục', 'plp-prj' ),
+		'update_item'                => __( 'Cập Nhật Chuyên Mục', 'plp-prj' ),
+		'add_new_item'               => __( 'Thêm Chuyên Mục', 'plp-prj' ),
+		'new_item_name'              => __( 'Chuyên Mục', 'plp-prj' ),
+		'not_found'                  => __( 'Không có chuyên mục.', 'plp-prj' ),
+	);
+
+	$args_txn = array(
+		'hierarchical'          => true,
+		'labels'                => $labels_txn,
+		'show_ui'               => true,
+		'show_admin_column'     => true,
+		'query_var'             => true,
+		'rewrite'               => array( 'slug' => 'chuyen-muc-du-an' ),
+	);
+
+	register_taxonomy( 'chuyen-muc-du-an', 'du-an', $args_txn );
+}
+
 ?>
