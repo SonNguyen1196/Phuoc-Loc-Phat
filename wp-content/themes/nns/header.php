@@ -27,13 +27,17 @@
 <body <?php body_class(); ?>>
 
 <!-- Top header start -->
+<?php
+    $_phone = (get_field('phone_option', 'option')) ? get_field('phone_option', 'option') : '';
+    $_email = (get_field('email_option', 'option')) ? get_field('email_option', 'option') : '';
+?>
 <div class="top-header hidden-xs" id="top">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="list-inline">
-                    <a href="tel:1-8X0-666-8X88"><i class="fa fa-phone"></i>1-8X0-666-8X88</a>
-                    <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>info@themevessel.com</a>
+                    <a href="tel:<?php echo (!empty($_phone) ? $_phone : '') ?>"><?php echo (!empty($_phone) ? '<i class="fa fa-phone"></i>'.$_phone : '') ?></a>
+                    <a href="tel:<?php echo (!empty($_email) ? $_email : '') ?>"><?php echo (!empty($_email) ? '<i class="fa fa-envelope"></i>'.$_email : '') ?></a>
                 </div>
             </div>
         </div>
@@ -42,6 +46,9 @@
 <!-- Top header end -->
 
 <!-- Main header start -->
+<?php 
+$_logo = (get_field('logo_option', 'option')) ? get_field('logo_option', 'option') : '';
+?>
 <header class="main-header">
     <div class="container">
         <nav class="navbar navbar-default">
@@ -52,8 +59,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="index.html" class="logo">
-                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/logos/logo-3.png" alt="logo">
+                <a href="<?php echo site_url() ?>">
+                    <img src="<?php echo ($_logo) ? $_logo['url'] : '' ?>" alt="<?php echo ($_logo) ? $_logo['alt'] : '' ?>">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
