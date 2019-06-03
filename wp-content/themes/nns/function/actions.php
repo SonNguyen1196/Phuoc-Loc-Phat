@@ -1,11 +1,5 @@
 <?php
-/***** ADD SESSION ******/
-add_action('init', 'hr_start_session', 1);
-function hr_start_session() {
-    if(!session_id()) {
-        session_start();
-    }
-}
+
 /**** REMOVE EMOJI *****/
 remove_action('wp_head', 'rest_output_link_wp_head');
 remove_action('wp_head', 'rsd_link');
@@ -201,10 +195,15 @@ function minify_css($url)
 add_action('after_setup_theme','hr_remove_core_updates');
 function hr_remove_core_updates(){
     if(! current_user_can('update_core')){return;}
-    add_action('init', create_function('$a',"remove_action( 'init', 'wp_version_check' );"),2);
+    add_action('init', remove_update_core_wp(),2);
     add_filter('pre_option_update_core','__return_null');
     add_filter('pre_site_transient_update_core','__return_null');
 }
+function remove_update_core_wp(){
+    remove_action( 'init', 'wp_version_check' );
+}
+
+
 
 /**** REMOVE ADMIN BAR *****/
 add_action('after_setup_theme', 'hr_remove_admin_bar');
