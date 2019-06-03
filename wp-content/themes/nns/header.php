@@ -65,22 +65,12 @@ $_logo = (get_field('logo_option', 'option')) ? get_field('logo_option', 'option
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">Trang Chủ</a></li>
-                    <li><a href="about.html" >Giới Thiệu</a></li>
-                    <li >
-                        <a href="properties-list-rightside.html" >Dự Án</a>
-                        <!--                      <ul class="dropdown-menu">-->
-                        <!--                          <li><a href="properties-details-3.html">Đất Nền</a></li>-->
-                        <!--                          <li><a href="properties-details-3.html">Căn Hộ</a></li>-->
-                        <!--                          <li><a href="properties-details-3.html">Biệt Thự</a></li>-->
-                        <!--                      </ul>-->
-                    </li>
-                    <li><a href="properties-details-3.html" >Chi Tiết Dự Án</a></li>
-                    <li><a href="blog-classic-sidebar-right.html" >Tin Tức</a></li>
-                    <li><a href=blog-single-sidebar-right.html >Chi Tiết Tin Tức</a></li>
-                    <li><a href="contact.html" >Liên Hệ</a></li>
-                </ul>
+                <?php
+                    wp_nav_menu( array(
+                        'menu_class' => 'nav navbar-nav',
+                        'theme_location' => 'main_menu'
+                    ) ); 
+                ?>
             </div>
         </nav>
     </div>

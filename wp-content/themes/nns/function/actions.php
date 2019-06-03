@@ -37,7 +37,7 @@ if (!is_admin() && !is_user_logged_in()) {
 
 register_nav_menus( array(
     'social_menu' => 'Social Links Menu',
-    'main_menu' => 'Main Menu'
+    'main_menu' => 'Menu Chính',
 ) );
 
 
@@ -353,17 +353,17 @@ function codex_duan_init() {
     
     // Add new taxonomy, NOT hierarchical (like tags)
 	$labels_txn = array(
-		'name'                       => _x( 'Chuyên Mục', 'plp-prj' ),
-		'singular_name'              => _x( 'Chuyên Mục', 'plp-prj' ),
-		'search_items'               => __( 'Tìm Kiếm Chuyên Mục', 'plp-prj' ),
-		'all_items'                  => __( 'Tất Cả Chuyên Mục', 'plp-prj' ),
+		'name'                       => _x( 'Danh Mục', 'plp-prj' ),
+		'singular_name'              => _x( 'Danh Mục', 'plp-prj' ),
+		'search_items'               => __( 'Tìm Kiếm Danh Mục', 'plp-prj' ),
+		'all_items'                  => __( 'Tất Cả Danh Mục', 'plp-prj' ),
 		'parent_item'                => null,
 		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Sửa Chuyên Mục', 'plp-prj' ),
-		'update_item'                => __( 'Cập Nhật Chuyên Mục', 'plp-prj' ),
-		'add_new_item'               => __( 'Thêm Chuyên Mục', 'plp-prj' ),
-		'new_item_name'              => __( 'Chuyên Mục', 'plp-prj' ),
-		'not_found'                  => __( 'Không có chuyên mục.', 'plp-prj' ),
+		'edit_item'                  => __( 'Sửa Danh Mục', 'plp-prj' ),
+		'update_item'                => __( 'Cập Nhật Danh Mục', 'plp-prj' ),
+		'add_new_item'               => __( 'Thêm Danh Mục', 'plp-prj' ),
+		'new_item_name'              => __( 'Danh Mục Dự Án', 'plp-prj' ),
+		'not_found'                  => __( 'Không có danh mục.', 'plp-prj' ),
 	);
 
 	$args_txn = array(
@@ -377,5 +377,11 @@ function codex_duan_init() {
 
 	register_taxonomy( 'chuyen-muc-du-an', 'du-an', $args_txn );
 }
+
+function change_submenu_class($menu) {  
+    $menu = preg_replace('/ class="sub-menu"/','/ class="dropdown-menu" /',$menu);  
+    return $menu;  
+  }  
+  add_filter('wp_nav_menu','change_submenu_class');  
 
 ?>
