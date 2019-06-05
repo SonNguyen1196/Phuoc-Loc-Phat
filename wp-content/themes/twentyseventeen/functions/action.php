@@ -23,7 +23,9 @@ function hr_frontend_script(){
     wp_enqueue_script('filterizr', THEME_URI.'/asset/js/jquery.filterizr.js',array('jquery'),'', true);
     wp_enqueue_script('magnific-popup.min.js', THEME_URI.'/asset/js/jquery.magnific-popup.min.js',array('jquery'),'', true);
     wp_enqueue_script('bug-workaround', THEME_URI.'/asset/js/ie10-viewport-bug-workaround.js',array('jquery'),'', true);
+    wp_enqueue_script('js-match-height', THEME_URI.'/asset/js/jquery.matchHeight-min.js',array('jquery'),'', true);
     wp_enqueue_script('ie-emulation-modes-warning', THEME_URI.'/asset/js/ie-emulation-modes-warning.js',array('jquery'),'', true);
+    wp_enqueue_script('ie-front-end', THEME_URI.'/asset/js/front-end.js',array('jquery'),'', true);
 
    /* wp_enqueue_style('css-font', THEME_URI.'/css/font-awesome.min.css');*/
     wp_enqueue_style('bootstrap', THEME_URI.'/asset/css/bootstrap.min.css');
@@ -40,7 +42,6 @@ function hr_frontend_script(){
     wp_enqueue_style('css-magnific', THEME_URI.'/asset/css/magnific-popup.css');
     wp_enqueue_style('css-special-style', THEME_URI.'/asset/css/style.css');
     wp_enqueue_style('css-overide', THEME_URI.'/asset/css/overide.css');
-    wp_enqueue_style('css-default', THEME_URI.'/asset/css/skins/default.css');
     wp_enqueue_style('css-default', THEME_URI.'/asset/css/skins/default.css');
     wp_enqueue_style('ie10-viewport-bug-workaround', THEME_URI.'/asset/css/ie10-viewport-bug-workaround.css');
 
@@ -120,5 +121,115 @@ function change_submenu_class($menu) {
     return $menu;  
   }  
   add_filter('wp_nav_menu','change_submenu_class');  
+
+  class New_Post_Blog extends WP_Widget {
+
+	/**
+	 * Register widget with WordPress.
+	 */
+	function __construct() {
+		parent::__construct(
+			'recent_blog_widget', // Base ID
+			esc_html__( 'Bài Viết Mới Đăng', 'nns-theme' ), // Name
+			array( 'description' => esc_html__( 'Hiển thị nhưng bài viết mới đăng', 'nns-theme' ), ) // Args
+		);
+	}
+
+	/**
+	 * Front-end display of widget.
+	 *
+	 * @see WP_Widget::widget()
+	 *
+	 * @param array $args     Widget arguments.
+	 * @param array $instance Saved values from database.
+	 */
+	public function widget( $args, $instance ) {
+		echo $args['before_widget'];
+		if ( ! empty( $instance['title'] ) ) {
+			?>
+			<div class="main-title-2 ">
+                    <h2 class="title-widget"><?php echo $instance['title'] ?></h2>
+                </div>
+			<?php
+		}
+
+		if ( ! empty( $instance['number_p'] ) ) {
+			$arg_loop = array(
+				'post_type' => 'du-an',
+				'posts_per_page ' => $instance['number_p'],
+				'post_status ' => 'publish'
+			);
+
+			$get_post_sb = get_posts($arg_loop);
+			foreach($get_post_sb as $post_it){
+				?>
+					<div class="media">
+						<div class="media-left">
+						<a href="<?php echo get_permalink($post_it->ID)?>">
+							<img class="media-object img-responsive" src="<?php echo get_the_post_thumbnail_url($post_it->ID) ?>" alt="<?php echo $post_it->post_title ?>">
+						</a>
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">
+								<a href="<?php echo get_permalink($post_it->ID)?>"><?php echo $post_it->post_title ; ?></a>
+							</h3>
+						</div>
+					</div>
+				<?php
+			}
+			 ?>
+			<?php wp_reset_postdata(); ?>
+			<?php
+		}
+		echo $args['after_widget'];
+	}
+
+	/**
+	 * Back-end widget form.
+	 *
+	 * @see WP_Widget::form()
+	 *
+	 * @param array $instance Previously saved values from database.
+	 */
+	public function form( $instance ) {
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Tiêu đề', 'nns-theme' );
+		$number_p = ! empty( $instance['number_p'] ) ? $instance['number_p'] : esc_html__( 'Số bài viết', 'nns-theme' );
+		?>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Tiêu đề:', 'nns-theme' ); ?></label> 
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'number_p' ) ); ?>"><?php esc_attr_e( 'Số bài viết:', 'nns-theme' ); ?></label> 
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number_p' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_p' ) ); ?>" type="text" value="<?php echo esc_attr( $number_p ); ?>">
+		</p>
+		<?php 
+	}
+
+	/**
+	 * Sanitize widget form values as they are saved.
+	 *
+	 * @see WP_Widget::update()
+	 *
+	 * @param array $new_instance Values just sent to be saved.
+	 * @param array $old_instance Previously saved values from database.
+	 *
+	 * @return array Updated safe values to be saved.
+	 */
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['number_p'] = ( ! empty( $new_instance['number_p'] ) ) ? sanitize_text_field( $new_instance['number_p'] ) : '';
+
+		return $instance;
+	}
+
+} // class Foo_Widget
+
+// register Foo_Widget widget
+function register_recent_blog_widget() {
+    register_widget( 'New_Post_Blog' );
+}
+add_action( 'widgets_init', 'register_recent_blog_widget' );
 
 ?>

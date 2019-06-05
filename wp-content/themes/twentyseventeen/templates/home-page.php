@@ -44,15 +44,17 @@
                                             </p>
                                             <?php 
                                             if(count($item['link_target']) > 0){
-                                                foreach($item['link_target'] as $link){
-                                                    ?>
-                                                    
-                                                    <?php
+                                                foreach($item['link_target'] as $links){
+                                                    if(count($links['link']) > 0){
+                                                       foreach($links as $link){
+                                                        ?>
+                                                        <a href="<?php echo ($link['url']) ? $link['url'] : '';?>" class="btn button-md border-button-theme-slider btn-slider-honme" data-animation="animated fadeInUp delay-15s"><?php echo ($link['title']) ? $link['title'] : '';?></a>
+                                                        <?php
+                                                       }
+                                                    }                                                    
                                                 }
                                             }
                                             ?>
-                                            <a href="#" class="btn button-md border-button-theme-slider btn-slider-honme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
-                                            <a href="#" class="btn button-md border-button-theme-slider btn-slider-honme" data-animation="animated fadeInUp delay-15s">Learn More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -81,21 +83,39 @@
             <!-- Banner end -->
             <!-- Search area start -->
             <div class="banner-ads-home">
-                <a href="#">
-                    <img class="img-responsive" src="<?php echo get_template_directory_uri() ?>/asset/img/banner/ads-banner.jpg" alt="">
-                </a>
+                <?php
+                $_botton_slider_home = (get_field('banner_bottom_slier')) ? get_field('banner_bottom_slier') : '';
+                $_botton_slider_link_home = (get_field('banner_bottom_slier_link')) ? get_field('banner_bottom_slier_link') : '';
+                if(is_array($_botton_slider_home)){
+                    ?>
+                        <a href="<?php echo ($_botton_slider_link_home) ?  $_botton_slider_link_home['url'] :  '#' ?>">
+                            <img class="img-responsive" src="<?php echo $_botton_slider_home['url'] ?>" alt="<?php echo $_botton_slider_home['alt'] ?>">
+                        </a>
+                    <?php
+                }
+                ?>
             </div>
             <!-- Search area start -->
 
             <!-- Featured properties start -->
-            <div class="featured-properties block-left-content">
+            <?php
+                $_title_sale = (get_field('tieu_de_du_an_mo_ban')) ? get_field('tieu_de_du_an_mo_ban') : '';
+                $_view_all_sale = (get_field('link_xem_them_du_an')) ? get_field('link_xem_them_du_an') : '';
+            ?>
+            <div class="featured-properties block-left-content block-sale-open">
                 <div class="row wow fadeIn delay-04s">
                     <div class="col-md-12 title-block-product ">
                         <div class="col-md-9 nopadding">
-                            <h2 class="h2-title text-left">DỰ ÁN ĐANG MỞ BÁN</h2>
+                            <h2 class="h2-title text-left"><?php echo (!empty($_title_sale)) ? $_title_sale : '';?></h2>
                         </div>
                         <div class="col-md-3 nopadding text-right">
-                            <a class="view-all-link" href="#">Xem Tất Cả >></a>
+                        <?php
+                            if(is_array($_view_all_sale)){
+                                ?>
+                                    <a class="view-all-link" href="<?php echo ($_view_all_sale) ?  $_view_all_sale['url'] :  '#' ?>"><?php echo ($_view_all_sale) ?  $_view_all_sale['title'] :  '#' ?> >></a>
+                                <?php
+                            }
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -104,252 +124,87 @@
                     
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-4.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                        Bán căn hộ Summer Square Quận 6, 2PN, DT: 65m2, Giá: 1.95 </a>
-                                </h1>
-
-                                <ul class="facilities-list fl-2 clearfix">
-                                    <li>
-                                        <span class="key-content">Giá:</span>
-                                        <span>300tr</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Địa Chỉ:</span>
-                                        <span>Biên Hòa, Đồng Nai</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Diện Tích:</span>
-                                        <span>100m2</span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            <i class="fa fa-calendar"></i> 16/05/2019
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-5.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                        Bán căn hộ Summer Square Quận 6, 2PN, DT: 65m2, Giá: 1.95 </a>
-                                </h1>
-
-                                <ul class="facilities-list fl-2 clearfix">
-                                    <li>
-                                        <span class="key-content">Giá:</span>
-                                        <span>300tr</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Địa Chỉ:</span>
-                                        <span>Biên Hòa, Đồng Nai</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Diện Tích:</span>
-                                        <span>100m2</span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            <i class="fa fa-calendar"></i> 16/05/2019
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                 $_open_sale_home = (get_field('du_an_mo_ban_01')) ? get_field('du_an_mo_ban_01') : '';                
+                ?>
 
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-6.jpg" alt="fp-list" class="img-responsive">
+
+                    <?php
+                    $i = 0;
+                    if(count($_open_sale_home) > 0 ){
+                        foreach($_open_sale_home as $key => $item){
+                            $i++;
+                            ?>
+                            <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
+                                <div class="property">
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
+                                        <!-- Property img -->
+                                        <div class="property-img">
+                                            <img src="<?php echo get_the_post_thumbnail_url( $item->ID, 'full' ) ?>" alt="<?php echo $item->post_title ?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
+                                        <!-- title -->
+                                        <h3 class="title">
+                                            <a href="<?php echo get_permalink( $item->ID ) ?>"><?php echo wp_trim_words($item->post_title, 10, '') ?></a>
+                                        </h3>
+
+                                        <ul class="facilities-list fl-2 clearfix">
+                                            <?php
+                                                $_price = (get_field('gia_du_an', $item->ID)) ? get_field('gia_du_an', $item->ID) : '';
+                                                $_address = (get_field('dia_chi_du_an', $item->ID)) ? get_field('dia_chi_du_an', $item->ID) : '';
+                                                $_size = (get_field('dien_tich_du_an', $item->ID)) ? get_field('dien_tich_du_an', $item->ID) : '';
+                                            ?>
+                                            <li>
+                                                <span class="key-content">Giá:</span>
+                                                <span><?php echo $_price ?></span>
+                                            </li>
+                                            <li>
+                                                <span class="key-content">Địa Chỉ:</span>
+                                                <span><?php echo $_address ?></span>
+                                            </li>
+                                            <li>
+                                                <span class="key-content">Diện Tích:</span>
+                                                <span><?php echo $_size ?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                        Bán căn hộ Summer Square Quận 6, 2PN, DT: 65m2, Giá: 1.95 </a>
-                                </h1>
-
-                                <ul class="facilities-list fl-2 clearfix">
-                                    <li>
-                                        <span class="key-content">Giá:</span>
-                                        <span>300tr</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Địa Chỉ:</span>
-                                        <span>Biên Hòa, Đồng Nai</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Diện Tích:</span>
-                                        <span>100m2</span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            <i class="fa fa-calendar"></i> 16/05/2019
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-4.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                        Bán căn hộ Summer Square Quận 6, 2PN, DT: 65m2, Giá: 1.95 </a>
-                                </h1>
-
-                                <ul class="facilities-list fl-2 clearfix">
-                                    <li>
-                                        <span class="key-content">Giá:</span>
-                                        <span>300tr</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Địa Chỉ:</span>
-                                        <span>Biên Hòa, Đồng Nai</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Diện Tích:</span>
-                                        <span>100m2</span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            <i class="fa fa-calendar"></i> 16/05/2019
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+                            if($i % 2 == 0){
+                                echo '</div><div class="row">';
+                            }
+                        }
+                    }
+                    
+                    ?>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-5.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                        Bán căn hộ Summer Square Quận 6, 2PN, DT: 65m2, Giá: 1.95 </a>
-                                </h1>
-
-                                <ul class="facilities-list fl-2 clearfix">
-                                    <li>
-                                        <span class="key-content">Giá:</span>
-                                        <span>300tr</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Địa Chỉ:</span>
-                                        <span>Biên Hòa, Đồng Nai</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Diện Tích:</span>
-                                        <span>100m2</span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            <i class="fa fa-calendar"></i> 16/05/2019
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-6.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                        Bán căn hộ Summer Square Quận 6, 2PN, DT: 65m2, Giá: 1.95 </a>
-                                </h1>
-
-                                <ul class="facilities-list fl-2 clearfix">
-                                    <li>
-                                        <span class="key-content">Giá:</span>
-                                        <span>300tr</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Địa Chỉ:</span>
-                                        <span>Biên Hòa, Đồng Nai</span>
-                                    </li>
-                                    <li>
-                                        <span class="key-content">Diện Tích:</span>
-                                        <span>100m2</span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            <i class="fa fa-calendar"></i> 16/05/2019
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- Featured properties end -->
 
 
             <!-- Featured properties start -->
-            <div class="featured-properties block-left-content">
+            <?php
+                $_title_news = (get_field('tieu_de_tin_tuc_trang_chu')) ? get_field('tieu_de_tin_tuc_trang_chu') : '';
+                $_view_all_news = (get_field('link_xem_them_tin_tuc')) ? get_field('link_xem_them_tin_tuc') : '';
+            ?>
+            <div class="featured-properties block-left-content new-post-home">
                 <div class="row wow fadeIn delay-04s">
                     <div class="col-md-12 title-block-product ">
                         <div class="col-md-9 nopadding">
-                            <h2 class="h2-title text-left">TIN TỨC</h2>
+                            <h2 class="h2-title text-left"><?php echo (!empty($_title_news)) ? $_title_news : '';?></h2>
                         </div>
                         <div class="col-md-3 nopadding text-right">
-                            <a class="view-all-link" href="#">Xem Tất Cả >></a>
+                        <?php
+                            if(is_array($_view_all_sale)){
+                                ?>
+                                    <a class="view-all-link" href="<?php echo ($_view_all_news) ?  $_view_all_news['url'] :  '#' ?>"><?php echo ($_view_all_news) ?  $_view_all_news['title'] :  '#' ?> >></a>
+                                <?php
+                            }
+                        ?>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -357,154 +212,59 @@
                     </div>
                     
                 </div>
+                <?php
+                 $_blog_news_home = (get_field('tin_tuc_du_an_lan_2')) ? get_field('tin_tuc_du_an_lan_2') : '';                
+                ?>
 
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-4.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                        5 cách kích hoạt năng lượng tốt cho phòng làm việc đầu năm mớ </a>
-                                </h1>
 
-                                <div class="facilities-list fl-2 clearfix">
-                                    <p> 
-                                            Đầu năm là khoảng thời gian thích hợp nhất cho việc sắp xếp, bố trí lại văn phòng làm việc để 
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $i = 0;
+                    if(count($_blog_news_home) > 0 ){
+                        foreach($_blog_news_home as $key => $item){
+                            $i++;
+                            ?>
+                            <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
+                                <div class="property">
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
+                                        <!-- Property img -->
+                                        <div class="property-img">
+                                        <img src="<?php echo get_the_post_thumbnail_url( $item->ID, 'full' ) ?>" alt="<?php echo $item->post_title ?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
+                                        <!-- title -->
+                                        <h3 class="title">
+                                            <a href="<?php echo get_permalink( $item->ID ) ?>"><?php echo wp_trim_words($item->post_title, 10, '') ?></a>
+                                        </h1>
 
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-5.jpg" alt="fp-list" class="img-responsive">
+                                        <div class="facilities-list fl-2 clearfix">
+                                            <p> 
+                                                <?php echo wp_trim_words($item->post_content, 50, '') ?>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                            Phòng làm việc hợp phong thủy giúp sự nghiệp bền vững </a>
-                                </h1>
 
-                                <div class="facilities-list fl-2 clearfix">
-                                    <p>Bố trí văn phòng hợp phong thủy giúp tăng vượng khí</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+                            if($i % 2 == 0){
+                                echo '</div><div class="row">';
+                            }
+                        }
+                    }
+
+                    ?>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-6.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                            Năm 2019, tuổi nào nên mua nhà, xây nhà?</a>
-                                </h1>
-
-                                <div class="facilities-list fl-2 clearfix">
-                                    <p>Theo chuyên gia phong thủy, năm 2019 tuổi Hợi sẽ có dòng chảy tài chính rất mạnh mẽ, vì vậy nên đầu tư vào việc mua nhà đất để đem lại lợi </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-4.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                            Trang trí nhà đón Tết: Chọn hoa tươi theo mệnh gia chủ
-                                            Xem tuổi xây nhà  </a>
-                                </h1>
-
-                                <div class="facilities-list fl-2 clearfix">
-                                    <p>Trang trí nội thất phòng ngủ hợp phong thủy với người tuổi Mão, Trang trí nội thất phòng ngủ hợp phong thủy với người tuổi Mão</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-5.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                            Phong thủy nhà ở đón năm mới (P1): Cách tạo sinh khí cho nơi ở</a>
-                                </h1>
-
-                                <div class="facilities-list fl-2 clearfix">
-                                    <p>Để có một môi trường sống an lành về vị trí - cấu trúc, an hòa về công năng - tương tác và an </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
-                        <div class="property">
-                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <img src="<?php echo get_template_directory_uri() ?>/asset/img/properties/properties-list-6.jpg" alt="fp-list" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 property-content">
-                                <!-- title -->
-                                <h3 class="title">
-                                    <a href="properties-details.html">
-                                            Những nguyên tắc trang trí nhà hợp phong thủy cho người trẻ</a>
-                                </h1>
-
-                                <div class="facilities-list fl-2 clearfix">
-                                    <p>
-                                            Phong thủy trong kiến trúc nhà lệch tầng và cách hóa giải
-                                            Phong thủy bài trí tiểu cảnh sân vườn
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- Featured properties end -->
         </div>
         <div class="col-md-3">
+            <?php get_sidebar() ?>
+        </div>
+        
+        <!-- <div class="col-md-3">
             <div class=" banner-right-cost">
                 <img class="img-responsive" src = "<?php echo get_template_directory_uri() ?>/asset/img/banner/banner-right.jpg" >
                 <div class="title">HỖ TRỢ VAY VỐN</div>
@@ -589,29 +349,26 @@
                 <img class="img-responsive" src="<?php echo get_template_directory_uri() ?>/asset/img/banner/banner-right-centana-thu-thiem.jpg" alt="">
             </div>
 
-        </div>
+        </div> -->
     </div>
 </div>
 
-<div class="intro-section">
+<div class="intro-section subcribe-elm">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
-                <img src="<?php echo get_template_directory_uri() ?>/asset/img/logos/logo-2.png" alt="logo-2">
+                <?php 
+                $_logo = (get_field('logo_option', 'option')) ? get_field('logo_option', 'option') : '';
+                $_form_sub = (get_field('get_email_form_subbcribe')) ? get_field('get_email_form_subbcribe') : '';
+                ?>
+                <img src="<?php echo ($_logo) ? $_logo['url'] : '' ?>" alt="<?php echo ($_logo) ? $_logo['alt'] : '' ?>">
             </div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <form action="#" method="post">
-                    <div class="row">
-                        <div class="col-md-8">
-                                <div class="form-group get-email-subcrribe">
-                                    <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Enter your Email Address" required="">
-                                </div>
-                        </div>
-                        <div class="col-md-4">
-                            <button type="submit" class="button-sm button-theme btn-block"> Subscribe</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="col-md-9 col-sm-9 col-xs-12 form-get-home">
+                <?php
+                
+                echo (!empty($_form_sub)) ? do_shortcode( $_form_sub) : '';
+                
+                ?>
             </div>
         </div>
     </div>
