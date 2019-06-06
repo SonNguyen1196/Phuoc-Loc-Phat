@@ -180,6 +180,7 @@
                     }
                     
                     ?>
+                    <?php wp_reset_postdata(); ?>
                 </div>
 
             </div>
@@ -255,6 +256,7 @@
                     }
 
                     ?>
+                    <?php wp_reset_postdata(); ?>
                 </div>
 
             </div>
@@ -263,93 +265,6 @@
         <div class="col-md-3">
             <?php get_sidebar() ?>
         </div>
-        
-        <!-- <div class="col-md-3">
-            <div class=" banner-right-cost">
-                <img class="img-responsive" src = "<?php echo get_template_directory_uri() ?>/asset/img/banner/banner-right.jpg" >
-                <div class="title">HỖ TRỢ VAY VỐN</div>
-                <div class="action-link"><a href="#">XEM NGAY</a></div>
-            </div>
-
-
-            <div class="sidebar-widget popular-posts custom-sidebar-widget">
-                <div class="main-title-2 ">
-                    <h2 class="title-widget">DỰ ÁN NỔI BẬT</h2>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object" src="<?php echo get_template_directory_uri() ?>/asset/img/properties/small-properties-1.jpg" alt="small-properties-1">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="properties-details.html">Sweet Family Home</a>
-                        </h3>
-                        <p>February 27, 2018</p>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object" src="<?php echo get_template_directory_uri() ?>/asset/img/properties/small-properties-2.jpg" alt="small-properties-2">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="properties-details.html">Modern Family Home</a>
-                        </h3>
-                        <p>February 27, 2018</p>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object" src="<?php echo get_template_directory_uri() ?>/asset/img/properties/small-properties-3.jpg" alt="small-properties-3">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="properties-details.html">Beautiful Single Home</a>
-                        </h3>
-                        <p>February 27, 2018</p>
-                    </div>
-                </div>
-
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object" src="<?php echo get_template_directory_uri() ?>/asset/img/properties/small-properties-1.jpg" alt="small-properties-1">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="properties-details.html">Sweet Family Home</a>
-                        </h3>
-                        <p>February 27, 2018</p>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object" src="<?php echo get_template_directory_uri() ?>/asset/img/properties/small-properties-2.jpg" alt="small-properties-2">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="properties-details.html">Modern Family Home</a>
-                        </h3>
-                        <p>February 27, 2018</p>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object" src="<?php echo get_template_directory_uri() ?>/asset/img/properties/small-properties-3.jpg" alt="small-properties-3">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="properties-details.html">Beautiful Single Home</a>
-                        </h3>
-                        <p>February 27, 2018</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="facebook-iframe">
-                <img class="img-responsive" src="<?php echo get_template_directory_uri() ?>/asset/img/banner/banner-right-centana-thu-thiem.jpg" alt="">
-            </div>
-
-        </div> -->
     </div>
 </div>
 
@@ -373,6 +288,5 @@
         </div>
     </div>
 </div>
-
 
 <!-- <?php get_footer(); ?> -->

@@ -155,21 +155,7 @@ function twentyseventeen_setup() {
 			),
 		),
 
-		// Default to a static front page and assign the front and posts pages.
-		'options'     => array(
-			'show_on_front'  => 'page',
-			'page_on_front'  => '{{home}}',
-			'page_for_posts' => '{{blog}}',
-		),
-
-		// Set the front page section theme mods to the IDs of the core-registered pages.
-		'theme_mods'  => array(
-			'panel_1' => '{{homepage-section}}',
-			'panel_2' => '{{about}}',
-			'panel_3' => '{{blog}}',
-			'panel_4' => '{{contact}}',
-		),
-
+	
 		// Set up nav menus for each of the two areas registered in the theme.
 		'nav_menus'   => array(
 			// Assign a menu to the "top" location.
@@ -232,24 +218,48 @@ function twentyseventeen_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => __( 'Footer 1', 'nns-theme' ),
-			'id'            => 'sidebar-2',
+			'id'            => 'footer-1',
 			'description'   => __( 'Add widgets here to appear in your footer.', 'nns-theme' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<div class="main-title-2"><h2>',
+			'after_title'   => '</h2></div>',
 		)
 	);
 
 	register_sidebar(
 		array(
 			'name'          => __( 'Footer 2', 'nns-theme' ),
-			'id'            => 'sidebar-3',
+			'id'            => 'footer-2',
 			'description'   => __( 'Add widgets here to appear in your footer.', 'nns-theme' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<div class="main-title-2"><h2>',
+			'after_title'   => '</h2></div>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer 3', 'nns-theme' ),
+			'id'            => 'footer-3',
+			'description'   => __( 'Add widgets here to appear in your footer.', 'nns-theme' ),
+			'before_widget' => '',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer 4', 'nns-theme' ),
+			'id'            => 'footer-4',
+			'description'   => __( 'Add widgets here to appear in your footer.', 'nns-theme' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<div class="main-title-2"><h2>',
+			'after_title'   => '</h2></div>',
 		)
 	);
 }
@@ -272,13 +282,5 @@ add_action( 'widgets_init', 'twentyseventeen_widgets_init' );
  * @param string $prefix Prefix for the returned ID.
  * @return string Unique ID.
  */
-function twentyseventeen_unique_id( $prefix = '' ) {
-	static $id_counter = 0;
-	if ( function_exists( 'wp_unique_id' ) ) {
-		return wp_unique_id( $prefix );
-	}
-	return $prefix . (string) ++$id_counter;
-}
-
 
 require get_template_directory() . '/functions/action.php';

@@ -154,3 +154,26 @@
 .popular-posts.custom-sidebar-widget .media .media-object {
   height: 60px;
 }
+.footer-info .main-title-2 h2 {
+  color: #c5c5c5;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 0;
+}
+
+footer .popular-posts .media .media-left {
+  width: 40%;
+}
+footer .popular-posts .media .media-left img{
+  height: 70px;
+}
+footer .popular-posts .media{
+  height: 70px;
+  overflow: hidden;
+}
+
+footer .popular-posts .media-heading {
+  line-height: 1.7;
+  margin-top: 0px;
+}

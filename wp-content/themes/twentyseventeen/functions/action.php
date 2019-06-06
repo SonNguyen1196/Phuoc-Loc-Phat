@@ -55,25 +55,25 @@ add_action( 'init', 'codex_duan_init' );
  */
 function codex_duan_init() {
 	$labels = array(
-		'name'               => _x( 'Dự Án', 'plp-prj' ),
-		'singular_name'      => _x( 'Dự Án', 'plp-prj' ),
-		'menu_name'          => _x( 'Dự Án', 'plp-prj' ),
-		'name_admin_bar'     => _x( 'Dự Án', 'plp-prj' ),
-		'add_new'            => _x( 'Thêm Dự Án', 'plp-prj' ),
-		'add_new_item'       => __( 'Thêm Dự Án', 'plp-prj' ),
-		'new_item'           => __( 'Thêm Dự Án', 'plp-prj' ),
-		'edit_item'          => __( 'Sửa Dự Án', 'plp-prj' ),
-		'view_item'          => __( 'Xem Dự Án', 'plp-prj' ),
-		'all_items'          => __( 'Tất Cả Dự Án', 'plp-prj' ),
-		'search_items'       => __( 'Tìm Kiếm Dự Án', 'plp-prj' ),
-		'parent_item_colon'  => __( 'Dự Án', 'plp-prj' ),
-		'not_found'          => __( 'Không tìm thấy Dự Án.', 'plp-prj' ),
-		'not_found_in_trash' => __( 'Không có Dự Án trong thùng rác.', 'plp-prj' )
+		'name'               => _x( 'Dự Án', 'nnstheme' ),
+		'singular_name'      => _x( 'Dự Án', 'nnstheme' ),
+		'menu_name'          => _x( 'Dự Án', 'nnstheme' ),
+		'name_admin_bar'     => _x( 'Dự Án', 'nnstheme' ),
+		'add_new'            => _x( 'Thêm Dự Án', 'nnstheme' ),
+		'add_new_item'       => __( 'Thêm Dự Án', 'nnstheme' ),
+		'new_item'           => __( 'Thêm Dự Án', 'nnstheme' ),
+		'edit_item'          => __( 'Sửa Dự Án', 'nnstheme' ),
+		'view_item'          => __( 'Xem Dự Án', 'nnstheme' ),
+		'all_items'          => __( 'Tất Cả Dự Án', 'nnstheme' ),
+		'search_items'       => __( 'Tìm Kiếm Dự Án', 'nnstheme' ),
+		'parent_item_colon'  => __( 'Dự Án', 'nnstheme' ),
+		'not_found'          => __( 'Không tìm thấy Dự Án.', 'nnstheme' ),
+		'not_found_in_trash' => __( 'Không có Dự Án trong thùng rác.', 'nnstheme' )
 	);
 
 	$args = array(
 		'labels'             => $labels,
-		'description'        => __( 'Description.', 'plp-prj' ),
+		'description'        => __( 'Description.', 'nnstheme' ),
 		'public'             => true,
 		'publicly_queryable' => true,
 		'show_ui'            => true,
@@ -91,17 +91,17 @@ function codex_duan_init() {
     
     // Add new taxonomy, NOT hierarchical (like tags)
 	$labels_txn = array(
-		'name'                       => _x( 'Danh Mục', 'plp-prj' ),
-		'singular_name'              => _x( 'Danh Mục', 'plp-prj' ),
-		'search_items'               => __( 'Tìm Kiếm Danh Mục', 'plp-prj' ),
-		'all_items'                  => __( 'Tất Cả Danh Mục', 'plp-prj' ),
+		'name'                       => _x( 'Danh Mục', 'nnstheme' ),
+		'singular_name'              => _x( 'Danh Mục', 'nnstheme' ),
+		'search_items'               => __( 'Tìm Kiếm Danh Mục', 'nnstheme' ),
+		'all_items'                  => __( 'Tất Cả Danh Mục', 'nnstheme' ),
 		'parent_item'                => null,
 		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Sửa Danh Mục', 'plp-prj' ),
-		'update_item'                => __( 'Cập Nhật Danh Mục', 'plp-prj' ),
-		'add_new_item'               => __( 'Thêm Danh Mục', 'plp-prj' ),
-		'new_item_name'              => __( 'Danh Mục Dự Án', 'plp-prj' ),
-		'not_found'                  => __( 'Không có danh mục.', 'plp-prj' ),
+		'edit_item'                  => __( 'Sửa Danh Mục', 'nnstheme' ),
+		'update_item'                => __( 'Cập Nhật Danh Mục', 'nnstheme' ),
+		'add_new_item'               => __( 'Thêm Danh Mục', 'nnstheme' ),
+		'new_item_name'              => __( 'Danh Mục Dự Án', 'nnstheme' ),
+		'not_found'                  => __( 'Không có danh mục.', 'nnstheme' ),
 	);
 
 	$args_txn = array(
@@ -122,8 +122,8 @@ function change_submenu_class($menu) {
   }  
   add_filter('wp_nav_menu','change_submenu_class');  
 
-  class New_Post_Blog extends WP_Widget {
-
+  
+class New_Post_Blog extends WP_Widget {
 	/**
 	 * Register widget with WordPress.
 	 */
@@ -134,7 +134,6 @@ function change_submenu_class($menu) {
 			array( 'description' => esc_html__( 'Hiển thị nhưng bài viết mới đăng', 'nns-theme' ), ) // Args
 		);
 	}
-
 	/**
 	 * Front-end display of widget.
 	 *
@@ -152,38 +151,42 @@ function change_submenu_class($menu) {
                 </div>
 			<?php
 		}
-
 		if ( ! empty( $instance['number_p'] ) ) {
-			$arg_loop = array(
-				'post_type' => 'du-an',
-				'posts_per_page ' => $instance['number_p'],
-				'post_status ' => 'publish'
-			);
 
-			$get_post_sb = get_posts($arg_loop);
-			foreach($get_post_sb as $post_it){
-				?>
-					<div class="media">
-						<div class="media-left">
-						<a href="<?php echo get_permalink($post_it->ID)?>">
-							<img class="media-object img-responsive" src="<?php echo get_the_post_thumbnail_url($post_it->ID) ?>" alt="<?php echo $post_it->post_title ?>">
-						</a>
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">
-								<a href="<?php echo get_permalink($post_it->ID)?>"><?php echo $post_it->post_title ; ?></a>
-							</h3>
-						</div>
-					</div>
-				<?php
-			}
+			$query = new WP_Query( array( 
+		        'post_type' =>'du-an' ,
+		        'posts_per_page' => $instance['number_p'],
+
+		    )  );
+
 			 ?>
-			<?php wp_reset_postdata(); ?>
+
+			 <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+
+			 	<div class="media">
+					<div class="media-left">
+					<a href="<?php the_permalink() ?>">
+						<img class="media-object img-responsive" src="<?php echo get_the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>">
+					</a>
+					</div>
+					<div class="media-body">
+						<h3 class="media-heading">
+							<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+						</h3>
+					</div>
+				</div>
+
+
+			 <?php endwhile; 
+			 wp_reset_postdata();
+			 else : ?>
+			 <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			 <?php endif; ?>
+
 			<?php
 		}
 		echo $args['after_widget'];
 	}
-
 	/**
 	 * Back-end widget form.
 	 *
@@ -205,7 +208,6 @@ function change_submenu_class($menu) {
 		</p>
 		<?php 
 	}
-
 	/**
 	 * Sanitize widget form values as they are saved.
 	 *
@@ -220,12 +222,9 @@ function change_submenu_class($menu) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['number_p'] = ( ! empty( $new_instance['number_p'] ) ) ? sanitize_text_field( $new_instance['number_p'] ) : '';
-
 		return $instance;
 	}
-
 } // class Foo_Widget
-
 // register Foo_Widget widget
 function register_recent_blog_widget() {
     register_widget( 'New_Post_Blog' );
