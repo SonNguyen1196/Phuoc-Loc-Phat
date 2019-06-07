@@ -4631,7 +4631,7 @@ a:hover {
 
 /** SUB BANNER AREA START **/
 .sub-banner {
-    background: rgba(0, 0, 0, 0.04) url(../img/sub-banner-1.jpg) top left repeat;
+
     background-size: cover;
     height: 280px;
     background-position: center center;

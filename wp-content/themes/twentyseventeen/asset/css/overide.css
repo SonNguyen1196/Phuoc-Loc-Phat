@@ -177,3 +177,34 @@ footer .popular-posts .media-heading {
   line-height: 1.7;
   margin-top: 0px;
 }
+.content-about-page{
+  padding: 70px 0;
+}
+
+#breadcrumbs{
+  list-style:none;
+  margin:10px 0;
+  overflow:hidden;
+}
+
+#breadcrumbs li{
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:15px;
+}
+
+#breadcrumbs .separator{
+  font-size:18px;
+  font-weight:100;
+  color:#ccc;
+}
+#breadcrumbs li.item-current:before {
+  content: "\f105";
+  font-family: "FontAwesome";
+  font-size: 14px;
+  margin-right: 15px;
+  font-weight: 600;
+}
+#breadcrumbs li.item-current{
+  color: #a6a6a6;
+}
