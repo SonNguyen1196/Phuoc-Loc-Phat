@@ -250,3 +250,22 @@ h3.tpl-du-an-page{
 .more-link-text a{
   color: #ffb14d;
 }
+.button-theme-ct{
+  background: #ffb14d !important;
+  border: 2px solid #ffb14d !important;
+  cursor: pointer !important;
+  padding: 15px 25px 13px 25px !important;
+  letter-spacing: 1px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  color: #555;
+  background: transparent;
+  transition: .5s;
+  border-radius: 2px;
+  border: none;
+}
+.button-theme-ct:hover{
+  background: #df0024 !important;
+  border: 2px solid #df0024 !important;
+}
