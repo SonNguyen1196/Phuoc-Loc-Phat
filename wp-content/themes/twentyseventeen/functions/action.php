@@ -451,4 +451,26 @@ function custom_breadcrumbs() {
     }
        
 }
+
+add_action('wp_footer', 'disable_right_click_copy');
+function disable_right_click_copy(){
+    $user = wp_get_current_user();
+    $allowed_roles = array('administrator');
+    if(array_intersect($allowed_roles, $user->roles) == false){
+        ?>
+            <script type ="text/javascript">
+                jQuery(document).ready(function($){
+                    $('body').bind('cut copy paste', function (e) {
+                        e.preventDefault();
+                    });
+                
+                    //Disable mouse right click
+                    $("body").on("contextmenu",function(e){
+                        return false;
+                    });
+                });       
+            </script>
+        <?php
+    }
+}
 ?>
