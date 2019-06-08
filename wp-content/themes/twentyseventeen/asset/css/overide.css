@@ -208,3 +208,45 @@ footer .popular-posts .media-heading {
 #breadcrumbs li.item-current{
   color: #a6a6a6;
 }
+h3.tpl-du-an-page{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.5;
+  height: 60px;
+  overflow: hidden;
+}
+.custom-navigation-page .page-numbers li{
+  display: inline;
+  border-radius: 0% !important;
+  margin: 0 5px 5px;
+  text-align: center;
+  padding: 7px 14.50px;
+  display: inline-block;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.custom-navigation-page .page-numbers li:hover{
+  background: #ffb14d;
+    border-color: #ffb14d;
+}
+.custom-navigation-page .page-numbers li a{
+  font-size: 18px;
+  color: #212529;
+}
+.custom-navigation-page .page-numbers li.active{
+  background: #ffb14d;
+  border-color: #ffb14d;
+}
+.custom-navigation-page .page-numbers li span.current{
+  font-size: 18px;
+  color: #fff;
+}
+.container-block-du-an{
+  padding: 70px 0;
+}
+.more-link-text{
+  margin-top: 15px;
+}
+.more-link-text a{
+  color: #ffb14d;
+}

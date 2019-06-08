@@ -9,39 +9,55 @@
  * @since 1.0
  * @version 1.0
  */
-
+global $post;
 get_header(); ?>
+<div class="blog-banner">
+    <div class="container">
+        <div class="breadcrumb-area">
+            <h1><?php echo get_the_title( $post->ID ) ?></h1>
+            <?php custom_breadcrumbs(); ?>
+        </div>
+    </div>
+</div>
 
-<div class="wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div class="blog-body content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-xs-12">
 
 			<?php
 			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			while ( have_posts() ) : the_post();?>
 
-				get_template_part( 'template-parts/post/content', get_post_format() );
+			 <!-- Blog box start -->
+			 <div class="thumbnail blog-box clearfix">
+				<img src="<?php echo get_the_post_thumbnail_url($post->ID, 'full')?>" alt="<?php echo get_the_title( $post->ID ) ?>" class="img-responsive">
+				<!-- detail -->
+				<div class="caption detail">
+					<!--Main title -->
+					<h3 class="title">
+						<a href="<?php echo get_permalink($post->ID) ?>"><?php echo get_the_title($post->ID) ?></a>
+					</h3>
+					
+					<div class="main-content-post">
+						<?php the_content( $post->ID ) ?>
+					</div>
+					
+				</div>
+			</div>
+			<!-- Blog box end -->
+			
+			<?php endwhile; ?>
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+               
+            </div>
 
-				the_post_navigation(
-					array(
-						'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
-						'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
-					)
-				);
-
-			endwhile; // End of the loop.
-			?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
+            <div class="col-lg-3 col-md-3 col-xs-12">
+               <?php get_sidebar( ) ?>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 get_footer();

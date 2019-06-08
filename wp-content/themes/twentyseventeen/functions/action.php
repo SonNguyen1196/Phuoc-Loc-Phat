@@ -238,7 +238,7 @@ function custom_breadcrumbs() {
     $separator          = '&gt;';
     $breadcrums_id      = 'breadcrumbs';
     $breadcrums_class   = 'breadcrumbs';
-    $home_title         = 'Homepage';
+    $home_title         = 'Trang Chủ';
       
     // If you have any custom post types with custom taxonomies, put the taxonomy name below (e.g. product_cat)
     $custom_taxonomy    = 'product_cat';
@@ -295,10 +295,9 @@ function custom_breadcrumbs() {
             // Get post category info
             $category = get_the_category();
              
-            if(!empty($category)) {
-              
+            if(!empty($category)) {              
                 // Get last category post is in
-                $last_category = end(array_values($category));
+                $last_category = $category[0];
                   
                 // Get parent any categories and create array
                 $get_cat_parents = rtrim(get_category_parents($last_category->term_id, true, ','),',');
