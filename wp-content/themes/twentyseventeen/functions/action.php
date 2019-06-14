@@ -1,6 +1,11 @@
 <?php
 define('THEME_URI', get_template_directory_uri());
 /***** ADD SCRIPT FRONTEND ******/
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page();
+	
+}
 add_action('wp_enqueue_scripts', 'hr_frontend_script');
 function hr_frontend_script(){
     //wp_deregister_script('jquery');

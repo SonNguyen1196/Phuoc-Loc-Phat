@@ -20,9 +20,8 @@ get_header(); ?>
                 <?php 
                 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
                 $query = new WP_Query( array( 
-                        'post_type' =>'post' ,
-						'posts_per_page' => 1,
-						'cat' => $cate_id->term_id,
+                        'post_type' =>'du-an' ,
+						'posts_per_page' => 5,
                         'paged' => $paged
                     )  ); ?>
                 <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>

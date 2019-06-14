@@ -20,10 +20,15 @@ get_header(); ?>
                 <?php 
                 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
                 $query = new WP_Query( array( 
-                        'post_type' =>'post' ,
-						'posts_per_page' => 1,
-						'cat' => $cate_id->term_id,
-                        'paged' => $paged
+                        'post_type' =>'du-an' ,
+                        'posts_per_page' => 5,
+                        'paged' => $paged,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'chuyen-muc-du-an',
+                                'terms'    => $cate_id->term_id,
+                            ),
+                        ),
                     )  ); ?>
                 <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
                     <div class="property clearfix wow fadeInUp delay-03s" style="visibility: visible; animation-name: fadeInUp;">
@@ -47,8 +52,7 @@ get_header(); ?>
                                 <div class="more-link-text">
                                     <a href="<?php echo get_permalink($post->ID)?>">Xem Thêm >></a>
                                 </div>
-                            </div>
-                        
+                            </div>                       
                         </div>
                     </div>
 

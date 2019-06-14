@@ -2044,7 +2044,6 @@ input[type=checkbox]:checked + label:before {
 
 /** CATEGORY AREA START **/
 .category {
-    overflow: hidden;
     position: relative;
     margin: 0 0 20px 0;
 }
@@ -2065,7 +2064,6 @@ input[type=checkbox]:checked + label:before {
     height: 100%;
     display: block;
     content: "";
-    background-color: #000;
     opacity: 0.4;
     z-index: -11;
     transition: 0.3s ease-out;
