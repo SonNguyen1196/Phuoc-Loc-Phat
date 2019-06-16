@@ -78,7 +78,31 @@
 </div>
 <!-- Copy end right-->
 
-<?php wp_footer() ?>
+<?php wp_footer() ;
+$_phone = (get_field('phone_option', 'option')) ? get_field('phone_option', 'option') : '';
+?>
+<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
+<div class="phonering-alo-ph-circle"></div>
+    <div class="phonering-alo-ph-circle-fill"></div>
+    <a href="tel:<?php echo (!empty($_phone) ? $_phone : '') ?>" class="pps-btn-img" title="Liên hệ">
+     <div class="phonering-alo-ph-img-circle"></div>
+    </a>
+</div>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5d061af036eab9721117af75/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
 </body>
 
 </html>
