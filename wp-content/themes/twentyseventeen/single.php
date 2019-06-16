@@ -42,7 +42,9 @@ get_header(); ?>
 					<div class="main-content-post">
 						<?php the_content( $post->ID ) ?>
 					</div>
-					
+					<div class="fb-comment">
+						<?php echo do_shortcode('[gs-fb-comments]') ?>
+					</div>
 				</div>
 			</div>
 			<!-- Blog box end -->
