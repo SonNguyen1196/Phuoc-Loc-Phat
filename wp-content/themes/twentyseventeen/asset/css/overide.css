@@ -275,3 +275,14 @@ footer .popular-posts .media-heading a{
 footer caption{
   color: #fff;
 }
+.main-logo-img {
+  padding: 20px 0;
+}
+.banner-tuyen-dung{
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+.subcribe-elm {
+  background: #bebebe !important;
+}

@@ -501,7 +501,7 @@ input[type=checkbox]:checked + label:before {
 
 /** TOP HEADER AREA START **/
 .top-header {
-    background-color: #111111;
+    background-color: #ffb14d;
 }
 
 .top-header .list-inline {
@@ -509,7 +509,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .list-inline a {
-    color: #aaa;
+    color: #fff;
     margin-right: 15px;
     font-size: 12px;
 }
@@ -573,16 +573,21 @@ input[type=checkbox]:checked + label:before {
 .main-header .navbar-default .nav > li > a {
     position: relative;
     display: block;
-    padding: 40px 20px;
+    padding: 10px 20px;
     font-size: 14px;
     border-top: solid 5px transparent;
     line-height: 27px;
     letter-spacing: 1px;
-    color: #4a4747;
+    color: #fff !important;
     outline: none;
     cursor: pointer;
 }
-
+.main-header .navbar-default .nav > li > a:hover {
+    color: #000 !important;
+}
+.header-menu-custom {
+    background: #ffb14d;
+}
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
     background-color: #fbfbfb;
 }

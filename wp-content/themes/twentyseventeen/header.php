@@ -47,31 +47,47 @@
 <!-- Main header start -->
 <?php 
 $_logo = (get_field('logo_option', 'option')) ? get_field('logo_option', 'option') : '';
+$_tuyen_dung = (get_field('banner_tuyen_dung', 'option')) ? get_field('banner_tuyen_dung', 'option') : '';
 ?>
 <header class="main-header">
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navigation" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    
+    <div class="main-logo-img">
+        <div class="container">
+            <div class="col-md-4 col-xs-12">
                 <a href="<?php echo site_url() ?>">
                     <img src="<?php echo ($_logo) ? $_logo['url'] : '' ?>" alt="<?php echo ($_logo) ? $_logo['alt'] : '' ?>">
                 </a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
-                <?php
-                    wp_nav_menu( array(
-                        'menu_class' => 'nav navbar-nav',
-                        'theme_location' => 'main_menu'
-                    ) ); 
-                ?>
+            <div class="col-md-8">
+                <div class="banner-tuyen-dung">
+                    <img class ="img-responsive" src="<?php echo $_tuyen_dung['url']?>" alt="<?php echo $_tuyen_dung['alt']?>">
+                </div>
             </div>
-        </nav>
+        </div>
+    </div>
+    
+    <div class="header-menu-custom">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navigation" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
+                    <?php
+                        wp_nav_menu( array(
+                            'menu_class' => 'nav navbar-nav',
+                            'theme_location' => 'main_menu'
+                        ) ); 
+                    ?>
+                </div>
+            </nav>
+        </div>
     </div>
 </header>
 <!-- Main header end -->
