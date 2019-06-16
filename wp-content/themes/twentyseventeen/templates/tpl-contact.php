@@ -3,8 +3,14 @@
     get_header(  );
     global $post;
     $banner = (get_field('banner_header_ct_page')) ? get_field('banner_header_ct_page') : '';
+    $contact_map = (get_field('google_map_contact')) ? get_field('google_map_contact') : '';
 ?>
-<div class="sub-banner overview-bgi" style = "background: rgba(0, 0, 0, 0.04) url(<?php echo (!empty($banner['url'])) ? $banner['url'] : ''; ?>) top left repeat;">
+<div>
+    <?php
+        echo (!empty($contact_map)) ? $contact_map : '';
+    ?>
+</div>
+<!-- <div class="sub-banner overview-bgi" style = "background: rgba(0, 0, 0, 0.04) url(<?php echo (!empty($banner['url'])) ? $banner['url'] : ''; ?>) top left repeat;">
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
@@ -13,7 +19,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <div class="container">
     <div class="contact-1 content-area-7">
         <div class="container">

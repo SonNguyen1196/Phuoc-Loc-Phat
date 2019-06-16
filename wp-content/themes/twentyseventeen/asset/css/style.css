@@ -2149,8 +2149,8 @@ input[type=checkbox]:checked + label:before {
 
 /** FOOTER AREA START **/
 footer {
-    background: #111;
-    color: #7c7e83;
+    background: #ffb14d;
+    color: #fff;
     padding: 100px 0 30px;
 }
 
@@ -2184,7 +2184,7 @@ footer .footer-item .newsletter {
 }
 
 .footer-info .personal-info li {
-    color: #7c7e83;
+    color: #fff;
     font-size: 13px;
     line-height: 27px;
     margin-bottom: 15px;
@@ -2213,14 +2213,14 @@ footer .footer-item .newsletter {
 }
 
 .footer-info .personal-info li a {
-    color: #7c7e83;
+    color: #fff;
 }
 
 .footer-info p {
     line-height: 30px;
     margin-bottom: 20px;
     font-size: 13px;
-    color: #7c7e83;
+    color: #fff;
 }
 
 .footer-info .popular-posts .media .media-body .price {
@@ -2235,7 +2235,7 @@ footer .footer-item .newsletter {
 }
 
 .footer-info .links li a {
-    color: #7c7e83;
+    color: #fff;
 }
 
 .footer-info .links li a:hover {

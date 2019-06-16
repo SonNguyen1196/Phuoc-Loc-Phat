@@ -155,7 +155,7 @@
   height: 60px;
 }
 .footer-info .main-title-2 h2 {
-  color: #c5c5c5;
+  color: #fff;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 16px;
@@ -268,4 +268,10 @@ h3.tpl-du-an-page{
 .button-theme-ct:hover{
   background: #df0024 !important;
   border: 2px solid #df0024 !important;
+}
+footer .popular-posts .media-heading a{
+  color: #fff;
+}
+footer caption{
+  color: #fff;
 }
