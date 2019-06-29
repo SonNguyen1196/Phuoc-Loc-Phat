@@ -53,12 +53,12 @@ $_tuyen_dung = (get_field('banner_tuyen_dung', 'option')) ? get_field('banner_tu
     
     <div class="main-logo-img">
         <div class="container">
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-4 col-sm-4 text-center">
                 <a href="<?php echo site_url() ?>">
                     <img src="<?php echo ($_logo) ? $_logo['url'] : '' ?>" alt="<?php echo ($_logo) ? $_logo['alt'] : '' ?>">
                 </a>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-8">
                 <div class="banner-tuyen-dung">
                     <img class ="img-responsive" src="<?php echo $_tuyen_dung['url']?>" alt="<?php echo $_tuyen_dung['alt']?>">
                 </div>

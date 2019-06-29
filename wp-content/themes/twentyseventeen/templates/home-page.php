@@ -105,17 +105,17 @@
             <div class="featured-properties block-left-content block-sale-open">
                 <div class="row wow fadeIn delay-04s">
                     <div class="col-md-12 title-block-product ">
-                        <div class="col-md-9 nopadding">
+                        <div class=" col-xs-9 nopadding">
                             <h2 class="h2-title text-left"><?php echo (!empty($_title_sale)) ? $_title_sale : '';?></h2>
                         </div>
-                        <div class="col-md-3 nopadding text-right">
-                        <?php
-                            if(is_array($_view_all_sale)){
-                                ?>
-                                    <a class="view-all-link" href="<?php echo ($_view_all_sale) ?  $_view_all_sale['url'] :  '#' ?>"><?php echo ($_view_all_sale) ?  $_view_all_sale['title'] :  '#' ?> >></a>
-                                <?php
-                            }
-                        ?>
+                        <div class="col-md-3 col-sm-3 col-xs-3 nopadding text-right">
+                            <?php
+                                if(is_array($_view_all_sale)){
+                                    ?>
+                                        <a class="view-all-link" href="<?php echo ($_view_all_sale) ?  $_view_all_sale['url'] :  '#' ?>"><?php echo ($_view_all_sale) ?  $_view_all_sale['title'] :  '#' ?> >></a>
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -136,7 +136,7 @@
                         foreach($_open_sale_home as $key => $item){
                             $i++;
                             ?>
-                            <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
                                 <div class="property">
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
                                         <!-- Property img -->
@@ -195,10 +195,10 @@
             <div class="featured-properties block-left-content new-post-home">
                 <div class="row wow fadeIn delay-04s">
                     <div class="col-md-12 title-block-product ">
-                        <div class="col-md-9 nopadding">
+                        <div class="col-md-9 col-sm-9 col-xs-9 nopadding">
                             <h2 class="h2-title text-left"><?php echo (!empty($_title_news)) ? $_title_news : '';?></h2>
                         </div>
-                        <div class="col-md-3 nopadding text-right">
+                        <div class="col-md-3 col-sm-3 col-xs-3 nopadding text-right">
                         <?php
                             if(is_array($_view_all_sale)){
                                 ?>
@@ -225,7 +225,7 @@
                         foreach($_blog_news_home as $key => $item){
                             $i++;
                             ?>
-                            <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 wow fadeInLeft delay-04s content-post-home" style="visibility: visible; animation-name: fadeInLeft;">
                                 <div class="property">
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-pad">
                                         <!-- Property img -->
@@ -271,14 +271,14 @@
 <div class="intro-section subcribe-elm">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-12 logo-responsive-img">
                 <?php 
                 $_logo = (get_field('logo_option', 'option')) ? get_field('logo_option', 'option') : '';
                 $_form_sub = (get_field('get_email_form_subbcribe')) ? get_field('get_email_form_subbcribe') : '';
                 ?>
                 <img src="<?php echo ($_logo) ? $_logo['url'] : '' ?>" alt="<?php echo ($_logo) ? $_logo['alt'] : '' ?>">
             </div>
-            <div class="col-md-9 col-sm-9 col-xs-12 form-get-home">
+            <div class="col-md-9 col-sm-12 form-get-home">
                 <?php
                 
                 echo (!empty($_form_sub)) ? do_shortcode( $_form_sub) : '';
