@@ -744,7 +744,9 @@ footer caption{
 .single-du-an .content-area {
   padding: 50px 0 70px;
 }
-
+.page-template-home-page .main-content-home{
+  margin-top: 50px;
+}
 @media screen and (min-width: 768px) {
   .container-block-du-an .property{
     height: 219px;

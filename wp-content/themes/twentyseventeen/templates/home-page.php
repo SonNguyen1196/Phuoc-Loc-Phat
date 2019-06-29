@@ -2,7 +2,7 @@
     /** Template Name: Trang chủ */
     get_header();
 ?>
-<div class="container">
+<div class="container main-content-home">
     <div class="row">
         <div class="col-md-9 banner-slider-home">
             <!-- Banner start -->
