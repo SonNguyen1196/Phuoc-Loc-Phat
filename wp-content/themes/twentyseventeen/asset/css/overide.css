@@ -128,7 +128,8 @@
     border: none;
 }
 .custom-sidebar-widget .title-widget{
-  font-size: 20px;
+  font-size: 28px;
+  text-transform: uppercase;
   margin: 0;
 }
 .subcribe-elm{
@@ -849,5 +850,8 @@ footer caption{
   }
   .d-none-mb{
     display: none;
+  }
+  .custom-sidebar-widget .title-widget {
+    font-size: 20px;
   }
 }
