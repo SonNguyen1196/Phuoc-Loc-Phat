@@ -744,12 +744,12 @@ footer caption{
 .single-du-an .content-area {
   padding: 50px 0 70px;
 }
-.container-block-du-an .property{
-  height: 219px;
-  overflow: hidden;
-}
-.property .property-content .facilities-list{
 
+@media screen and (min-width: 768px) {
+  .container-block-du-an .property{
+    height: 219px;
+    overflow: hidden;
+  }
 }
 @media screen and (max-width: 992px) {
   .content-post-home .property .property-content {
