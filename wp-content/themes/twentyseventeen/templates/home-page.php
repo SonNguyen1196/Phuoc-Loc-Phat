@@ -108,7 +108,7 @@
                         <div class=" col-xs-9 nopadding">
                             <h2 class="h2-title text-left"><?php echo (!empty($_title_sale)) ? $_title_sale : '';?></h2>
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 nopadding text-right">
+                        <div class="col-md-3 col-sm-3 col-xs-3 nopadding text-right d-none-mb">
                             <?php
                                 if(is_array($_view_all_sale)){
                                     ?>
@@ -198,7 +198,7 @@
                         <div class="col-md-9 col-sm-9 col-xs-9 nopadding">
                             <h2 class="h2-title text-left"><?php echo (!empty($_title_news)) ? $_title_news : '';?></h2>
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 nopadding text-right">
+                        <div class="col-md-3 col-sm-3 col-xs-3 nopadding text-right d-none-mb">
                         <?php
                             if(is_array($_view_all_sale)){
                                 ?>

@@ -741,6 +741,16 @@ footer caption{
 .sidebar-widget{
   padding: 0;
 }
+.single-du-an .content-area {
+  padding: 50px 0 70px;
+}
+.container-block-du-an .property{
+  height: 219px;
+  overflow: hidden;
+}
+.property .property-content .facilities-list{
+
+}
 @media screen and (max-width: 992px) {
   .content-post-home .property .property-content {
     margin-top: 20px;
@@ -751,7 +761,7 @@ footer caption{
   .new-post-home .content-post-home .property {
     height: 347px;
   }
-  .page-template-home-page .popular-posts.custom-sidebar-widget .media .media-object {
+   .popular-posts.custom-sidebar-widget .media .media-object {
     height: 100px;
   }
   .subcribe-elm img {
@@ -760,12 +770,12 @@ footer caption{
     top: calc(50% + 38px);
     left: 0;
   }
-  .page-template-home-page .popular-posts .media {
+   .popular-posts .media {
     width: 46%;
     float: left;
     margin-right: 15px;
   }
-  .page-template-home-page footer .footer-item .media{
+   footer .footer-item .media{
     width: 100%;
     float: inherit;
   }
@@ -789,14 +799,14 @@ footer caption{
   .navbar-default .navbar-toggle{
     background-color: #ddd !important;
   }
-  .page-template-home-page footer .footer-item .media {
+   footer .footer-item .media {
     width: 46%;
     float: left;
     margin-right: 15px
   }
 }
 @media screen and (max-width: 576px) {
-  .page-template-home-page .popular-posts.custom-sidebar-widget .media .media-object {
+   .popular-posts.custom-sidebar-widget .media .media-object {
     height: 75px;
   }
   footer .popular-posts .media {
@@ -805,10 +815,10 @@ footer caption{
   footer .popular-posts .media .media-left img {
     height: 100px;
   }
-  .page-template-home-page .popular-posts .media {
+   .popular-posts .media {
     width: 100%;
   }
-  .page-template-home-page .popular-posts .media{
+   .popular-posts .media{
     float: inherit;
   }
   .banner-tuyen-dung {
@@ -820,9 +830,22 @@ footer caption{
   .banner-slider-home .banner .banner-slider-inner p {
     font-size: 16px;
   }
-  .page-template-home-page footer .footer-item .media {
+   footer .footer-item .media {
     width: 100%;
     float: inherit;
   }
-  
+  h3.tpl-du-an-page{
+    height: 50px;
+  }
+  .sidebar-widget {
+    margin-bottom: 30px;
+    margin-top: 35px;
+  }
+  .h2-title {
+    margin: 0 0 25px;
+    font-size: 20px;
+  }
+  .d-none-mb{
+    display: none;
+  }
 }

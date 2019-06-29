@@ -45,7 +45,7 @@
                             <!-- Property address -->
                             <!-- Facilities List -->
                             <div class="facilities-list clearfix">
-                                <?php echo wp_trim_words(get_the_content(), 55, ''); ?>
+                                <?php echo wp_trim_words(get_the_content(), 40, ''); ?>
                                 <div class="more-link-text">
                                     <a href="<?php echo get_permalink($post->ID)?>">Xem Thêm >></a>
                                 </div>
