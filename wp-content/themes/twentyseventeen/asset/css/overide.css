@@ -749,6 +749,9 @@ footer caption{
 .page-template-home-page .main-content-home{
   margin-top: 50px;
 }
+.property .hp-1 {
+  height: 220px;
+}
 @media screen and (min-width: 768px) {
   .container-block-du-an .property{
     height: 219px;

@@ -21,7 +21,7 @@ get_header(); ?>
                 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
                 $query = new WP_Query( array( 
                         'post_type' =>'post' ,
-						'posts_per_page' => 1,
+						'posts_per_page' => 5,
 						'cat' => $cate_id->term_id,
                         'paged' => $paged
                     )  ); ?>
@@ -43,7 +43,7 @@ get_header(); ?>
                             <!-- Property address -->
                             <!-- Facilities List -->
                             <div class="facilities-list clearfix">
-                                <?php echo wp_trim_words(get_the_content(), 55, ''); ?>
+                                <?php echo wp_trim_words(get_the_content(), 40, ''); ?>
                                 <div class="more-link-text">
                                     <a href="<?php echo get_permalink($post->ID)?>">Xem Thêm >></a>
                                 </div>

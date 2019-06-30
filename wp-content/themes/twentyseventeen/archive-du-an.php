@@ -19,10 +19,11 @@ get_header(); ?>
                 
                 <?php 
                 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+                // $wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
                 $query = new WP_Query( array( 
                         'post_type' =>'du-an' ,
-						'posts_per_page' => 5,
-                        'paged' => $paged
+                        'posts_per_page' => 5,
+                        'paged' => $paged,
                     )  ); ?>
                 <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
                     <div class="property clearfix wow fadeInUp delay-03s" style="visibility: visible; animation-name: fadeInUp;">
@@ -42,7 +43,7 @@ get_header(); ?>
                             <!-- Property address -->
                             <!-- Facilities List -->
                             <div class="facilities-list clearfix">
-                                <?php echo wp_trim_words(get_the_content(), 55, ''); ?>
+                                <?php echo wp_trim_words(get_the_content(), 40, ''); ?>
                                 <div class="more-link-text">
                                     <a href="<?php echo get_permalink($post->ID)?>">Xem Thêm >></a>
                                 </div>

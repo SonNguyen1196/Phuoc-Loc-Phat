@@ -478,4 +478,13 @@ function disable_right_click_copy(){
         <?php
     }
 }
+
+  
+function custom_posts_per_page( $query ) {
+
+    if ( $query->is_archive('du-an') ) {
+        set_query_var('posts_per_page', 1);
+    }
+}
+add_action( 'pre_get_posts', 'custom_posts_per_page' );
 ?>
