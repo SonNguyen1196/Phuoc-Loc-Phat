@@ -487,11 +487,4 @@ function custom_posts_per_page( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'custom_posts_per_page' );
-
-add_filter( 'pre_get_posts', 'my_get_posts' );
-function my_get_posts( $query ) {
-     if ( is_home() && $query->is_main_query() || is_feed() )
-         $query->set( 'post_type', array( 'post', 'du-an' ) );
-         return $query;
-}
 ?>
