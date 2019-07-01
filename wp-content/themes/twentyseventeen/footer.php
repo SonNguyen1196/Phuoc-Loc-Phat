@@ -38,11 +38,11 @@
 <!-- Footer end -->
 
 <!-- Copy right start -->
-<div class="copy-right">
+<!-- <div class="copy-right">
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-8 col-sm-12">
-                &copy;  2017 <a href="http://themevessel.com/" target="_blank">Theme Vessel</a>. Trademarks and brands are the property of their respective owners.
+                &copy;  2017 <a href="http://themevessel.com/" target="_blank">Phước Lộc Phát</a>.
             </div>
             <div class="col-md-4 col-sm-12">
                 <ul class="social-list clearfix">
@@ -75,7 +75,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Copy end right-->
 
 <?php wp_footer() ;
