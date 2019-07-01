@@ -89,7 +89,7 @@ function codex_duan_init() {
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'publicize' )
 	);
 
     register_post_type( 'du-an', $args );
@@ -487,4 +487,11 @@ function custom_posts_per_page( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'custom_posts_per_page' );
+
+add_filter( 'pre_get_posts', 'my_get_posts' );
+function my_get_posts( $query ) {
+     if ( is_home() && $query->is_main_query() || is_feed() )
+         $query->set( 'post_type', array( 'post', 'course' ) );
+         return $query;
+}
 ?>
