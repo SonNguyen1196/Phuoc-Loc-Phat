@@ -84,7 +84,7 @@
             <!-- Search area start -->
             <div class="banner-ads-home">
                 <?php
-                $_botton_slider_home = (get_field('banner_bottom_slier')) ? get_field('banner_bottom_slier') : '';
+                $_botton_slider_home = (get_field('banner_bottom_slider')) ? get_field('banner_bottom_slider') : '';
                 $_botton_slider_link_home = (get_field('banner_bottom_slier_link')) ? get_field('banner_bottom_slier_link') : '';
                 if(is_array($_botton_slider_home)){
                     ?>
