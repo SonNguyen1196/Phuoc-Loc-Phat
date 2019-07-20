@@ -16,7 +16,16 @@
  */
 
 get_header(); ?>
-<?php
-the_content();
-?>
+
+<div class="container">
+    <div style="margin:30px 0">
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <div style="margin:30px 0">
+                <?php the_content(); ?>
+            </div>
+        <?php endwhile; else : ?>
+            <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+        <?php endif; ?>
+    </div>
+</div>
 <?php get_footer(); ?>
