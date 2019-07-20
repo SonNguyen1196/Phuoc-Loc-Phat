@@ -37,6 +37,16 @@ img{
     max-width: 100%;
     height: auto;
 }
+img.aligncenter{
+    display: table;
+    margin: auto;
+}
+img.alignright{
+    float: right;
+}
+img.alignleft{
+    float: left;
+}
 a:hover {
     text-decoration: none;
 }
