@@ -1,4 +1,5 @@
 <?php
+define('WP_CACHE', true); // Added by WP Rocket
 /**
  * The base configuration for WordPress
  *
@@ -17,16 +18,15 @@
  *
  * @package WordPress
  */
-
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'plp_bds' );
+define( 'DB_NAME', 'admin_plp' );
 
 /** MySQL database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'admin_plp' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', '@Son0961090061' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
